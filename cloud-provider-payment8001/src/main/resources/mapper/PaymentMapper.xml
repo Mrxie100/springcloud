@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springcloud.test.mapper.PaymentMapper">
+
+    <insert id="create" parameterType="com.springcloud.test.entity.Payment">
+        insert into payment(serial) value(#{serial})
+    </insert>
+
+
+    <select id="getPaymentID" resultType="com.springcloud.test.entity.Payment">
+        select * from payment
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+        </where>
+    </select>
+
+</mapper>
